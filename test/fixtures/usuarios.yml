@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nombre: MyString
+  contrase¤a: MyString
+  sexo: MyString
+  peso: 1.5
+  tiempo: 1.5
+  frecuencia_cardiaca: 1.5
+  distancia: 1
+  vo_max: 1.5
+  diabetes: false
+  hipertension: false
+  colesterol_alto: false
+
+two:
+  nombre: MyString
+  contrase¤a: MyString
+  sexo: MyString
+  peso: 1.5
+  tiempo: 1.5
+  frecuencia_cardiaca: 1.5
+  distancia: 1
+  vo_max: 1.5
+  diabetes: false
+  hipertension: false
+  colesterol_alto: false

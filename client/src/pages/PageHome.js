@@ -14,7 +14,7 @@ class ComponentPageHome extends Component {
           <div className="wrap">
               <img src={logoA}  className="img-fluid" alt="Responsive image" />
           </div>
-          <h1 className="text-uppercase mb-0">Aprimar</h1>
+          <h1 className="text-uppercase mb-0">Apri</h1>
           <h2 className="font-weight-light mb-0"> Aprende a alimentarte sanamente</h2>
         </div>
       </header>

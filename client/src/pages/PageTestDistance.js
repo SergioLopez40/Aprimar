@@ -91,7 +91,7 @@ class Formulario extends Component {
         <br />
         <div id="success"></div>
         <div className="form-group text-center">
-          <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Login</button>
+          <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
         </div>
       </form>
     );

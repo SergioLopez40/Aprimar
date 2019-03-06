@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
-import logo from '../logo.png';
+import { Redirect } from 'react-router-dom';
+import { connect } from 'react-redux';
 import logoA from '../Aprimar.png';
+import logoB from '../logo1.png';
 
 
 class ComponentPageHome extends Component {
@@ -11,8 +11,8 @@ class ComponentPageHome extends Component {
     return (
       <header className="masthead bg-info text-black text-center">
         <div className="container">
-          <div className="wrap">
-              <img src={logoA}  className="img-fluid" alt="Responsive image" />
+        <div className="wrap">
+              <img src={logoB}  className="img-fluid" alt="Responsive image" />
           </div>
           <h1 className="text-uppercase mb-0">Apri</h1>
           <h2 className="font-weight-light mb-0"> Aprende a alimentarte sanamente</h2>

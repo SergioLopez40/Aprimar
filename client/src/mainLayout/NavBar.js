@@ -1,16 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { NavLink, Link } from "react-router-dom";
-import linux from '../icon.png'
+import linux from '../logo2.png'
 import { ActionsType } from "../reducers";
 import { push } from 'react-router-redux'
-
-
 
 class Logo extends Component {
   render() {
     return (
-      <NavLink className="navbar-brand js-scroll-trigger " to="/">Aprimar</NavLink>
+      <NavLink className="navbar-brand js-scroll-trigger " to="/">Apri</NavLink>
     );
   }
 }
@@ -28,21 +26,13 @@ class LinksCollapse extends Component {
     super(props);
     console.log(this.props)
     this.state = {
-      renderLogin: !props.isAuthenticated,
-      renderMap: true,
-      renderDenounce: props.isAuthenticated,
-      renderLivingcost: true,
-      renderViolence:  true,
-      renderEntites:  true,
+      renderLogin: false,
       renderLogout: props.isAuthenticated,
-
-    }
-  }
-
-  static getDerivedStateFromProps(nextProps, prevState){
-    return {
-      renderLogin: !nextProps.isAuthenticated,
-      renderLogout: nextProps.isAuthenticated,
+      renderApri: true,
+      renderActualizar: true,
+      renderCooper: true,
+      renderTest:  true,
+      renderRegistro:  props.isAuthenticated,
     }
   }
 
@@ -55,28 +45,28 @@ class LinksCollapse extends Component {
 
 
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderMap} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="mapa de riesgos" to="/map" />
+            <NavBarLink render={this.state.renderApri} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Apri" to="/map" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderDenounce} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="denunciar" to="/denounce" />
+            <NavBarLink render={this.state.renderActualizar} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Proporcionar Datos" to="/denounce" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderViolence} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="violencia" to="/violence" />
+            <NavBarLink render={this.state.renderTest} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test capacidad aeróbica" to="/violence" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderLivingcost} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="costo de vida" to="/livingcost" />
+            <NavBarLink render={this.state.renderCooper} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test de Cooper" to="/livingcost" />
           </li>
 
           <li className="nav-item mx-0 md-1">
-            <NavBarLink render={this.state.renderEntites}  className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="entidades" to="/entities" />
+            <NavBarLink render={this.state.renderRegistro}  className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Registrarse" to="/entities" />
           </li>
 
           <li className="nav-item mx-0 md-1">
-            <NavBarLink render={this.state.renderLogin} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Login" to="/login" />
+            <NavBarLink render={this.state.renderLogin} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Iniciar sesion" to="/login" />
           </li>
 
           <li className="nav-item mx-0 md-1">
-            <NavBarLink render={this.state.renderLogout} onClick={this.props.onLogout} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to="/" value="Logout" />
+            <NavBarLink render={this.state.renderLogout} onClick={this.props.onLogout} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" to="/" value="Salir" />
           </li>
         </ul>
       </div>
@@ -110,6 +100,10 @@ class ComponentNavBar extends Component {
     return (
       <nav className="navbar navbar-expand-lg bg-secondary fixed-top text-uppercase" id="mainNav">
         <div className="container">
+          <NavLink className="navbar-brand js-scroll-trigger" to="/">  <img  src={linux} width="40" height="40" /></NavLink>
+           <Logo />
+          <Menu />
+          <LinksCollapse isAuthenticated={this.props.isAuthenticated} onLogout={this.props.logout}/>
         </div>
       </nav>
     );

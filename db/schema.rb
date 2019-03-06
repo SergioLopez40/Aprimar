@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_04_014531) do
+ActiveRecord::Schema.define(version: 2019_03_06_003823) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -38,6 +38,17 @@ ActiveRecord::Schema.define(version: 2019_03_04_014531) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
+  create_table "diets", force: :cascade do |t|
+    t.text "descripcion"
+    t.text "instrucciones"
+    t.text "ingredientes"
+    t.boolean "diabetes"
+    t.boolean "hipertension"
+    t.boolean "colesterol_alto"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "usuarios", force: :cascade do |t|
     t.string "nombre"
     t.string "contrasena"
@@ -46,7 +57,9 @@ ActiveRecord::Schema.define(version: 2019_03_04_014531) do
     t.float "tiempo"
     t.float "frecuencia_cardiaca"
     t.integer "distancia"
+    t.integer "co"
     t.float "vo_max"
+    t.float "coeficiente_respiratorio"
     t.boolean "diabetes"
     t.boolean "hipertension"
     t.boolean "colesterol_alto"

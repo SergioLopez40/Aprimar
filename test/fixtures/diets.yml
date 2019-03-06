@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  descripcion: MyText
+  instrucciones: MyText
+  ingredientes: MyText
+  diabetes: false
+  hipertension: false
+  colesterol_alto: false
+
+two:
+  descripcion: MyText
+  instrucciones: MyText
+  ingredientes: MyText
+  diabetes: false
+  hipertension: false
+  colesterol_alto: false

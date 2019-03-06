@@ -2,26 +2,30 @@
 
 one:
   nombre: MyString
-  contrase¤a: MyString
+  contrasena: MyString
   sexo: MyString
   peso: 1.5
   tiempo: 1.5
   frecuencia_cardiaca: 1.5
   distancia: 1
+  co: 1
   vo_max: 1.5
+  coeficiente_respiratorio: 1.5
   diabetes: false
   hipertension: false
   colesterol_alto: false
 
 two:
   nombre: MyString
-  contrase¤a: MyString
+  contrasena: MyString
   sexo: MyString
   peso: 1.5
   tiempo: 1.5
   frecuencia_cardiaca: 1.5
   distancia: 1
+  co: 1
   vo_max: 1.5
+  coeficiente_respiratorio: 1.5
   diabetes: false
   hipertension: false
   colesterol_alto: false

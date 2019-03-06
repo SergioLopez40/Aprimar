@@ -48,6 +48,7 @@ class App extends Component {
       <div id="page-top" className="App">
         <NavBar />
         <Route path="/" exact component={PageHome} />
+        <Route path="/login" component={PageLogin} />
         <Footer />
       </div>
   );

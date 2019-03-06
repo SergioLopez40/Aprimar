@@ -12,7 +12,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
 
   test "should create usuario" do
     assert_difference('Usuario.count') do
-      post usuarios_url, params: { usuario: { colesterol_alto: @usuario.colesterol_alto, contrase¤a: @usuario.contrase¤a, diabetes: @usuario.diabetes, distancia: @usuario.distancia, frecuencia_cardiaca: @usuario.frecuencia_cardiaca, hipertension: @usuario.hipertension, nombre: @usuario.nombre, peso: @usuario.peso, sexo: @usuario.sexo, tiempo: @usuario.tiempo, vo_max: @usuario.vo_max } }, as: :json
+      post usuarios_url, params: { usuario: { co: @usuario.co, coeficiente_respiratorio: @usuario.coeficiente_respiratorio, colesterol_alto: @usuario.colesterol_alto, contrasena: @usuario.contrasena, diabetes: @usuario.diabetes, distancia: @usuario.distancia, frecuencia_cardiaca: @usuario.frecuencia_cardiaca, hipertension: @usuario.hipertension, nombre: @usuario.nombre, peso: @usuario.peso, sexo: @usuario.sexo, tiempo: @usuario.tiempo, vo_max: @usuario.vo_max } }, as: :json
     end
 
     assert_response 201
@@ -24,7 +24,7 @@ class UsuariosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update usuario" do
-    patch usuario_url(@usuario), params: { usuario: { colesterol_alto: @usuario.colesterol_alto, contrase¤a: @usuario.contrase¤a, diabetes: @usuario.diabetes, distancia: @usuario.distancia, frecuencia_cardiaca: @usuario.frecuencia_cardiaca, hipertension: @usuario.hipertension, nombre: @usuario.nombre, peso: @usuario.peso, sexo: @usuario.sexo, tiempo: @usuario.tiempo, vo_max: @usuario.vo_max } }, as: :json
+    patch usuario_url(@usuario), params: { usuario: { co: @usuario.co, coeficiente_respiratorio: @usuario.coeficiente_respiratorio, colesterol_alto: @usuario.colesterol_alto, contrasena: @usuario.contrasena, diabetes: @usuario.diabetes, distancia: @usuario.distancia, frecuencia_cardiaca: @usuario.frecuencia_cardiaca, hipertension: @usuario.hipertension, nombre: @usuario.nombre, peso: @usuario.peso, sexo: @usuario.sexo, tiempo: @usuario.tiempo, vo_max: @usuario.vo_max } }, as: :json
     assert_response 200
   end
 

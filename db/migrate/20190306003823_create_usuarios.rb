@@ -8,7 +8,9 @@ class CreateUsuarios < ActiveRecord::Migration[5.2]
       t.float :tiempo
       t.float :frecuencia_cardiaca
       t.integer :distancia
+      t.integer :co
       t.float :vo_max
+      t.float :coeficiente_respiratorio
       t.boolean :diabetes
       t.boolean :hipertension
       t.boolean :colesterol_alto

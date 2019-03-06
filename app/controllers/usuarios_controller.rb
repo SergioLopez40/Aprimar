@@ -1,4 +1,4 @@
-class UsuariosController < ApiController
+class UsuariosController < ApplicationController
   before_action :set_usuario, only: [:show, :update, :destroy]
 
   # GET /usuarios
@@ -46,6 +46,6 @@ class UsuariosController < ApiController
 
     # Only allow a trusted parameter "white list" through.
     def usuario_params
-      params.require(:usuario).permit(:nombre, :contrasena, :sexo, :peso, :tiempo, :frecuencia_cardiaca, :distancia, :vo_max, :diabetes, :hipertension, :colesterol_alto)
+      params.require(:usuario).permit(:nombre, :contrasena, :sexo, :peso, :diabetes, :hipertension, :colesterol_alto)
     end
 end

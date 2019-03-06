@@ -29,7 +29,7 @@ class LinksCollapse extends Component {
       renderLogin: false,
       renderLogout: props.isAuthenticated,
       renderApri: true,
-      renderActualizar: true,
+      renderActualizar: false,
       renderCooper: true,
       renderTest:  true,
       renderRegistro:  props.isAuthenticated,
@@ -45,20 +45,20 @@ class LinksCollapse extends Component {
 
 
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderApri} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Apri" to="/map" />
+            <NavBarLink render={this.state.renderApri} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Apri" to="/apri" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderActualizar} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Proporcionar Datos" to="/denounce" />
+            <NavBarLink render={this.state.renderActualizar} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Proporcionar Datos" to="/update" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderTest} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test capacidad aeróbica" to="/violence" />
+            <NavBarLink render={this.state.renderTest} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test capacidad aeróbica" to="/test_distance" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderCooper} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test de Cooper" to="/livingcost" />
+            <NavBarLink render={this.state.renderCooper} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test de Cooper" to="/cooper" />
           </li>
 
           <li className="nav-item mx-0 md-1">
-            <NavBarLink render={this.state.renderRegistro}  className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Registrarse" to="/entities" />
+            <NavBarLink render={this.state.renderRegistro}  className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Registrarse" to="/registro" />
           </li>
 
           <li className="nav-item mx-0 md-1">

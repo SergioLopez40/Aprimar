@@ -5,6 +5,10 @@ import Footer from './Footer';
 import NavBar from './NavBar';
 import PageLogin from '../pages/PageLogin';
 import PageHome from '../pages/PageHome';
+import PageApri from '../pages/PageApri';
+import PageTestTime from '../pages/PageTestTime';
+import PageTestDistance from '../pages/PageTestDistance';
+import PageUpdate from '../pages/PageUpdate';
 
 
 class App extends Component {
@@ -49,6 +53,10 @@ class App extends Component {
         <NavBar />
         <Route path="/" exact component={PageHome} />
         <Route path="/login" component={PageLogin} />
+        <Route path="/apri" component={PageApri} />
+        <Route path="/test_distance" component={PageTestTime} />
+        <Route path="/cooper" component={PageTestDistance} />
+        <Route path="/update" component={PageUpdate} />
         <Footer />
       </div>
   );

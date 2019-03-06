@@ -54,7 +54,7 @@ class App extends Component {
         <Route path="/" exact component={PageHome} />
         <Route path="/login" component={PageLogin} />
         <Route path="/apri" component={PageApri} />
-        <Route path="/test_distance" component={PageTestTime} />
+        <Route path="/test_time" component={PageTestTime} />
         <Route path="/cooper" component={PageTestDistance} />
         <Route path="/update" component={PageUpdate} />
         <Footer />

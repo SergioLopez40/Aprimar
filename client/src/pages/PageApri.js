@@ -79,6 +79,8 @@ class Login extends Component {
         <div className="container">
           <h2 className="text-center text-uppercase text-secondary mb-0">Veamos tu estado actual..</h2>
           <br></br>
+          <br></br>
+            <hr></hr>
           <h3 className="text-center text-secondary mb-0">Para esto debes haber realizado alguna de las dos pruebas: Test de Cooper / Test de capacidad aerobica.</h3>
           <br></br>
           <h3 className="text-center text-secondary mb-0">Ahora, usaras tu dispositivo: exhala durante 3 segundos y oprime el boton mientras lo haces</h3>
@@ -99,7 +101,7 @@ class Login extends Component {
 }
 
 
-const PageLogin = connect(
+const PageApri = connect(
   state => ({
     isAuthenticated: state.authReducers.isAuthenticated,
   }),
@@ -114,4 +116,4 @@ const PageLogin = connect(
   })
 )(Login)
 
-export default PageLogin;
+export default PageApri;

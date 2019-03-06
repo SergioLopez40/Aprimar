@@ -26,7 +26,7 @@ class LinksCollapse extends Component {
     super(props);
     console.log(this.props)
     this.state = {
-      renderLogin: false,
+      renderLogin: true,
       renderLogout: props.isAuthenticated,
       renderApri: true,
       renderActualizar: false,
@@ -51,7 +51,7 @@ class LinksCollapse extends Component {
             <NavBarLink render={this.state.renderActualizar} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Proporcionar Datos" to="/update" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderTest} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test capacidad aeróbica" to="/test_distance" />
+            <NavBarLink render={this.state.renderTest} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test capacidad aeróbica" to="/test_time" />
           </li>
           <li className="nav-item mx-0 md-2">
             <NavBarLink render={this.state.renderCooper} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test de Cooper" to="/cooper" />

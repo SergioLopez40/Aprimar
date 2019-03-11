@@ -5,75 +5,62 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { ActionsType } from "../reducers";
+import axios from 'axios';
+import Popup from 'react-popup';
 
+// minified version is also included
 
-class Formulario extends Component {
+export default class PageApri extends Component {
   constructor(props) {
     super(props);
+    this.onChangeCR = this.onChangeCR.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
     this.state = {
       id: '',
-      pass: '',
-      answer: '',
-      passError: [],
+      coeficiente_respiratorio: '',
     }
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const id = this.state.id;
-    const pass = this.state.pass;
+  //notify = () => toast("Datos registrados con exito!");
 
-    if (!id || id.length < 1) {
-      this.setState({ idError: 'Valor Invalido' })
-      return;
-    }
-
-    if (!pass || pass.length < 1) {
-      this.setState({ passError: 'Identificacion no valida' })
-      return;
-    }
-
+  componentDidMount() {
+    axios.get('usuarios/1')
+        .then(response => {
+            this.setState({ 
+              coeficiente_respiratorio: response.data.coeficiente_respiratorio});
+        })
+        .catch(function (error) {
+            console.log(error.response.header);
+        })
   }
 
-  handleIdChange(event) {
-    this.setState({ id: event.target.value });
-  }
+  myFunction() {
+    Popup.alert('I am alert, nice to meet you');
+}
+  
 
-  handlePassChange(event) {
-    this.setState({ pass: event.target.value });
-  }
-
-  render() {
-
-    return (
-      <form name="sentMessage" id="contactForm" noValidate="novalidate" onSubmit={this.handleSubmit.bind(this)} >
-        <div className="control-group">
-          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
-            <label>Valor CO2</label>
-            <input className="form-control text-center" type="text" value={this.state.id} placeholder="Valor CO2" onChange={this.handleIdChange.bind(this)} />
-            <p className="help-block text-danger">{this.state.idError}</p>
-          </div>
-        </div>
-
-        <br />
-        <div id="success"></div>
-        <div className="form-group text-center">
-          <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
-        </div>
-      </form>
-    );
-  }
+onChangeCR(e) {
+  this.setState({
+    coeficiente_respiratorio: e.target.value
+  });
 }
 
-class Login extends Component {
-  render() {
-    if (this.props.isAuthenticated) {
-      return (
-        <Redirect to='/' />
-      )
-    }
 
-    return (
+onSubmit(e) {
+  e.preventDefault();
+  const obj = {
+    coeficiente_respiratorio: this.state.coeficiente_respiratorio,
+  };
+  axios.post('usuarios/update/1', obj)
+      .then(res => console.log(res.json()));
+  
+  this.props.history.push('/diets/');
+}
+
+  render() {
+
+    return(
       <section id="contact" style={{ "paddingTop": "calc(6rem + 72px)" }}>
         <div className="container">
           <h2 className="text-center text-uppercase text-secondary mb-0">Veamos tu estado actual..</h2>
@@ -90,29 +77,25 @@ class Login extends Component {
 
           <div className="row">
             <div className="col-lg-8 mx-auto">
-              <Formulario onSubmit={this.props.login}/>
             </div>
           </div>
         </div>
+        <form name="sentMessage" id="contactForm" noValidate="novalidate" onSubmit={this.onSubmit} >
+        <div className="control-group">
+          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
+            <label>Valor CO2</label>
+            <input className="form-control text-center" type="text"  placeholder="Valor CO2" onChange={this.onChangeCR} />
+          </div>
+        </div>
+
+        <br />
+        <div id="success"></div>
+        <div className="form-group text-center">
+        <button onClick= {() => {alert('Datos recibidos con exito');}} type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
+        </div>
+      </form>
       </section>
-    );
+    )
   }
 }
 
-
-const PageApri = connect(
-  state => ({
-    isAuthenticated: state.authReducers.isAuthenticated,
-  }),
-  dispatch => ({
-    login: (info) => {
-      dispatch({
-        type: ActionsType.LOGIN,
-        payload: info,
-      })
-      dispatch(push('/login'))
-    }
-  })
-)(Login)
-
-export default PageApri;

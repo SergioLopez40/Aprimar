@@ -48,7 +48,7 @@ class LinksCollapse extends Component {
             <NavBarLink render={this.state.renderApri} className="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" value="Apri" to="/apri" />
           </li>
           <li className="nav-item mx-0 md-2">
-            <NavBarLink render={this.state.renderActualizar} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Proporcionar Datos" to="/update" />
+            <NavBarLink render={this.state.renderActualizar} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Dieta" to="/diets" />
           </li>
           <li className="nav-item mx-0 md-2">
             <NavBarLink render={this.state.renderTest} className="nav-link py-3 px-0 px-lg-2 rounded js-scroll-trigger" value="Test capacidad aeróbica" to="/test_time" />

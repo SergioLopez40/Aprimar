@@ -5,126 +5,86 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { ActionsType } from "../reducers";
+import axios from 'axios';
+import Popup from 'react-popup';
 
 
-
-class Formulario extends Component {
+export default class PageTestTime extends Component {
   constructor(props) {
     super(props);
+    this.onChangeSexo = this.onChangeSexo.bind(this);
+    this.onChangeEdad = this.onChangeEdad.bind(this);
+    this.onChangePeso = this.onChangePeso.bind(this);
+    this.onChangeTiempo = this.onChangeTiempo.bind(this);
+    this.onChangeFC = this.onChangeFC.bind(this);    
+    this.onSubmit = this.onSubmit.bind(this);
     this.state = {
       id: '',
-      pass: '',
+      sexo: '',
       edad: '',
       peso: '',
       tiempo: '',
       fc: '',
-      answer: '',
-      passError: [],
     }
   }
 
-  handleSubmit(event) {
-    event.preventDefault();
-    const id = this.state.id;
-    const pass = this.state.pass;
-    const edad = this.state.edad;
-    const peso = this.state.peso;
-    const tiempo = this.state.tiempo;
-    const fc = this.state.fc;
-
-    if (!id || id.length < 1) {
-      this.setState({ idError: 'Valor Invalido' })
-      return;
-    }
-
-    if (!pass || pass.length < 1) {
-      this.setState({ passError: 'Identificacion no valida' })
-      return;
-    }
-
+  componentDidMount() {
+    axios.get('usuarios/1')
+        .then(response => {
+            this.setState({ 
+              sexo: response.data.sexo,
+              edad: response.data.edad,
+              peso: response.data.peso,
+              tiempo: response.data.tiempo,
+              fc: response.data.fc});
+        })
+        .catch(function (error) {
+            console.log(error.response.header);
+        })
   }
 
-  handleIdChange(event) {
-    this.setState({ id: event.target.value });
+  onChangeSexo(e) {
+    this.setState({
+      sexo: e.target.value
+    });
   }
-
-  handlePassChange(event) {
-    this.setState({ pass: event.target.value });
+  onChangeEdad(e) {
+    this.setState({
+      edad: e.target.value
+    });
   }
-
-  handleEdadChange(event) {
-    this.setState({ edad: event.target.value });
+  onChangeTiempo(e) {
+    this.setState({
+      tiempo: e.target.value
+    });
   }
-
-  handlePesoChange(event) {
-    this.setState({ peso: event.target.value });
+  onChangePeso(e) {
+    this.setState({
+      peso: e.target.value
+    });
   }
-
-  handleTiempoChange(event) {
-    this.setState({ tiempo: event.target.value });
+  onChangeFC(e) {
+    this.setState({
+      fc: e.target.value
+    });
   }
-
-  handleFcChange(event) {
-    this.setState({ fc: event.target.value });
+  
+  onSubmit(e) {
+    e.preventDefault();
+    const obj = {
+      sexo: this.state.sexo,
+      edad: this.state.edad,
+      peso: this.state.peso,
+      tiempo: this.state.tiempo,
+      fc: this.state.fc,
+    };
+    axios.post('usuarios/update/1', obj)
+        .then(res => console.log(res.json()));
+    
+    this.props.history.push('/apri');
   }
 
   render() {
-
-    return (
-      <form name="sentMessage" id="contactForm" noValidate="novalidate" onSubmit={this.handleSubmit.bind(this)} >
-        <div className="control-group">
-          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
-            <label>Sexo</label>
-            <input className="form-control text-center" type="text" value={this.state.id} placeholder="Sexo: introduce un digito de acuerdo: 1:hombre / 0:mujer" onChange={this.handleIdChange.bind(this)} />
-            <p className="help-block text-danger">{this.state.idError}</p>
-          </div>
-        </div>
-        <div className="control-group">
-          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
-            <label>Edad</label>
-            <input className="form-control text-center" type="text" value={this.state.edad} placeholder="Edad" onChange={this.handleEdadChange.bind(this)} />
-            <p className="help-block text-danger">{this.state.idError}</p>
-          </div>
-        </div>
-        <div className="control-group">
-          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
-            <label>Peso</label>
-            <input className="form-control text-center" type="text" value={this.state.peso} placeholder="Peso(kg)" onChange={this.handlePesoChange.bind(this)} />
-            <p className="help-block text-danger">{this.state.idError}</p>
-          </div>
-        </div>
-        <div className="control-group">
-          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
-            <label>Tiempo en minutos</label>
-            <input className="form-control text-center" type="text" value={this.state.tiempo} placeholder="Tiempo(minutos)" onChange={this.handleTiempoChange.bind(this)} />
-            <p className="help-block text-danger">{this.state.idError}</p>
-          </div>
-        </div>
-        <div className="control-group">
-          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
-            <label>Frecuencia cardiaca</label>
-            <input className="form-control text-center" type="text" value={this.state.fc} placeholder="Frecuencia cardiaca" onChange={this.handleFcChange.bind(this)} />
-            <p className="help-block text-danger">{this.state.idError}</p>
-          </div>
-        </div>
-        <br />
-        <div id="success"></div>
-        <div className="form-group text-center">
-          <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
-        </div>
-      </form>
-    );
-  }
-}
-
-class Login extends Component {
-  render() {
-    if (this.props.isAuthenticated) {
-      return (
-        <Redirect to='/' />
-      )
-    }
-
     return (
         <section id="contact" style={{ "paddingTop": "calc(6rem + 72px)" }}>
           <div className="container">
@@ -141,29 +101,51 @@ class Login extends Component {
   
             <div className="row">
               <div className="col-lg-8 mx-auto">
-                <Formulario onSubmit={this.props.login}/>
               </div>
             </div>
           </div>
+          <form name="sentMessage" id="contactForm" noValidate="novalidate" onSubmit={this.onSubmit} >
+        <div className="control-group">
+          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
+            <label>Sexo</label>
+            <input className="form-control text-center" type="text" placeholder="Sexo: 1:hombre / 0:mujer" onChange={this.onChangeSexo} />
+          </div>
+        </div>
+        <div className="control-group">
+          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
+            <label>Edad</label>
+            <input className="form-control text-center" type="text" placeholder="Edad" onChange={this.onChangeEdad} />
+
+          </div>
+        </div>
+        <div className="control-group">
+          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
+            <label>Peso</label>
+            <input className="form-control text-center" type="text" placeholder="Peso(kg)" onChange={this.onChangePeso} />
+
+          </div>
+        </div>
+        <div className="control-group">
+          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
+            <label>Tiempo en minutos</label>
+            <input className="form-control text-center" type="text"  placeholder="Tiempo(minutos)" onChange={this.onChangeTiempo} />
+
+          </div>
+        </div>
+        <div className="control-group">
+          <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
+            <label>Frecuencia cardiaca</label>
+            <input className="form-control text-center" type="text" placeholder="Frecuencia cardiaca" onChange={this.onChangeFC} />
+
+          </div>
+        </div>
+        <br />
+        <div id="success"></div>
+        <div className="form-group text-center">
+        <button onClick= {() => {alert('Datos recibidos con exito');}} type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
+        </div>
+      </form>
         </section>
-      );
+      )
     }
   }
-
-
-const PageTestTime = connect(
-  state => ({
-    isAuthenticated: state.authReducers.isAuthenticated,
-  }),
-  dispatch => ({
-    login: (info) => {
-      dispatch({
-        type: ActionsType.LOGIN,
-        payload: info,
-      })
-      dispatch(push('/login'))
-    }
-  })
-)(Login)
-
-export default PageTestTime;

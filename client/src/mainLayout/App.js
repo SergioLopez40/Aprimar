@@ -9,7 +9,7 @@ import PageApri from '../pages/PageApri';
 import PageTestTime from '../pages/PageTestTime';
 import PageTestDistance from '../pages/PageTestDistance';
 import PageTestDistanceP from '../pages/PageTestDistanceP';
-import PageUpdate from '../pages/PageUpdate';
+import PageSensor from '../pages/PageSensor';
 
 
 class App extends Component {
@@ -57,7 +57,7 @@ class App extends Component {
         <Route path="/apri" component={PageApri} />
         <Route path="/test_time" component={PageTestTime} />
         <Route path="/cooper" component={PageTestDistanceP} />
-        <Route path="/update" component={PageUpdate} />
+        <Route path="/diets" component={PageSensor} />
         <Footer />
       </div>
   );

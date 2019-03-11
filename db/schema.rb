@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 2019_03_06_003823) do
   end
 
   create_table "diets", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.text "descripcion"
-    t.text "instrucciones"
-    t.text "ingredientes"
+    t.text "descripcion", null: false
+    t.text "instrucciones", null: false
+    t.text "ingredientes", null: false
     t.boolean "diabetes"
     t.boolean "hipertension"
     t.boolean "colesterol_alto"

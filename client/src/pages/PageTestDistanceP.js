@@ -6,7 +6,10 @@ import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { ActionsType } from "../reducers";
 import axios from 'axios';
+import Popup from 'react-popup';
 
+// minified version is also included
+// import 'react-toastify/dist/ReactToastify.min.css';
 
 export default class PageTestDistanceP extends Component {
   constructor(props) {
@@ -20,6 +23,8 @@ export default class PageTestDistanceP extends Component {
     }
   }
 
+  //notify = () => toast("Datos registrados con exito!");
+
   componentDidMount() {
     axios.get('usuarios/1')
         .then(response => {
@@ -30,6 +35,11 @@ export default class PageTestDistanceP extends Component {
             console.log(error.response.header);
         })
   }
+
+  myFunction() {
+    Popup.alert('I am alert, nice to meet you');
+}
+  
 
 onChangeDistancia(e) {
   this.setState({
@@ -45,12 +55,12 @@ onSubmit(e) {
   axios.post('usuarios/update/1', obj)
       .then(res => console.log(res.json()));
   
-  this.props.history.push('/cooper');
+  this.props.history.push('/apri');
 }
 
   render() {
 
-    return (
+    return(
       <section id="contact" style={{ "paddingTop": "calc(6rem + 72px)" }}>
         <div className="container">
           <h2 className="text-center text-uppercase text-secondary mb-0">Test de Cooper</h2>
@@ -78,13 +88,13 @@ onSubmit(e) {
         <div className="group">
           <div className="form-group floating-label-form-group controls mb-0 pb-2 text-center">
             <label>Distancia</label>
-            <input className="form-control text-center" type="text" value={this.state.distancia} placeholder="Distancia recorrida" onChange={this.onChangeDistancia} />
+            <input className="form-control text-center" type="text" placeholder="Distancia recorrida" onChange={this.onChangeDistancia} />
           </div>
         </div>
         <br />
         <div id="success"></div>
         <div className="form-group text-center">
-          <button type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
+          <button onClick= {() => {alert('Datos recibidos con exito');}} type="submit" className="btn btn-primary btn-xl" id="sendMessageButton">Enviar</button>
         </div>
       </form>
       </section>

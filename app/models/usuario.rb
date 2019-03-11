@@ -4,5 +4,5 @@ class Usuario < ApplicationRecord
     attribute :distancia, :integer, default: 0
     attribute :co, :integer, default: 0
     attribute :vo_max, :float, default: 0
-    attribute :coeficiente_respiratorio, :float, default: 0.0
+    attribute :coeficiente_respiratorio, :float, default: 0
 end

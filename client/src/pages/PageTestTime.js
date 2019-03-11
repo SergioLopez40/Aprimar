@@ -33,7 +33,7 @@ class Formulario extends Component {
     const fc = this.state.fc;
 
     if (!id || id.length < 1) {
-      this.setState({ idError: 'Usuario Invalido' })
+      this.setState({ idError: 'Valor Invalido' })
       return;
     }
 

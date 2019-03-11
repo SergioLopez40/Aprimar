@@ -7,7 +7,6 @@ import { push } from 'react-router-redux'
 import { ActionsType } from "../reducers";
 
 
-
 class Formulario extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +24,7 @@ class Formulario extends Component {
     const pass = this.state.pass;
 
     if (!id || id.length < 1) {
-      this.setState({ idError: 'Usuario Invalido' })
+      this.setState({ idError: 'Valor Invalido' })
       return;
     }
 
@@ -81,7 +80,7 @@ class Login extends Component {
           <br></br>
           <br></br>
             <hr></hr>
-          <h3 className="text-center text-secondary mb-0">Para esto debes haber realizado alguna de las dos pruebas: Test de Cooper / Test de capacidad aerobica.</h3>
+          <h3 className="text-center text-secondary mb-0">Para mejorar la precision se recomienda realizar alguna de las dos pruebas: Test de Cooper / Test de capacidad aerobica.</h3>
           <br></br>
           <h3 className="text-center text-secondary mb-0">Ahora, usaras tu dispositivo: exhala durante 3 segundos y oprime el boton mientras lo haces</h3>
           <br></br>

@@ -5,7 +5,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 import { ActionsType } from "../reducers";
-
+import axios from 'axios';
 
 
 class Formulario extends Component {
@@ -25,7 +25,7 @@ class Formulario extends Component {
     const pass = this.state.pass;
 
     if (!id || id.length < 1) {
-      this.setState({ idError: 'Usuario Invalido' })
+      this.setState({ idError: 'Valor Invalido' })
       return;
     }
 

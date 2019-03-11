@@ -8,6 +8,7 @@ import PageHome from '../pages/PageHome';
 import PageApri from '../pages/PageApri';
 import PageTestTime from '../pages/PageTestTime';
 import PageTestDistance from '../pages/PageTestDistance';
+import PageTestDistanceP from '../pages/PageTestDistanceP';
 import PageUpdate from '../pages/PageUpdate';
 
 
@@ -55,7 +56,7 @@ class App extends Component {
         <Route path="/login" component={PageLogin} />
         <Route path="/apri" component={PageApri} />
         <Route path="/test_time" component={PageTestTime} />
-        <Route path="/cooper" component={PageTestDistance} />
+        <Route path="/cooper" component={PageTestDistanceP} />
         <Route path="/update" component={PageUpdate} />
         <Footer />
       </div>

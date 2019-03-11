@@ -26,7 +26,7 @@ class LinksCollapse extends Component {
     super(props);
     console.log(this.props)
     this.state = {
-      renderLogin: true,
+      renderLogin: false,
       renderLogout: props.isAuthenticated,
       renderApri: true,
       renderActualizar: false,

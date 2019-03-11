@@ -5,6 +5,7 @@ import logoA from '../Aprimar.png';
 import logoB from '../logo1.png';
 
 
+
 class ComponentPageHome extends Component {
 
   landing(){
